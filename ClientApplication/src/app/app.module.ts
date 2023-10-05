@@ -16,6 +16,7 @@ import { RandomNumberComponent } from './components/random-number/random-number.
   ],
   imports: [
     BrowserModule,
+    AppRoutingModule,
     BrowserAnimationsModule,
     HttpClientModule,
     MatSidenavModule,
