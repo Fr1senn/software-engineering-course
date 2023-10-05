@@ -1,3 +1,6 @@
+using SoftwareEngineering.Interfaces;
+using SoftwareEngineering.Services;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -14,6 +17,8 @@ builder.Services.AddCors(options =>
         builder.AllowAnyOrigin().AllowAnyHeader().AllowAnyMethod();
     });
 });
+
+builder.Services.AddTransient<IRandomNumberGenerator, RandomNumberGenerator>();
 
 var app = builder.Build();
 
