@@ -1,0 +1,17 @@
+<mat-drawer-container class="h-screen">
+    <mat-drawer class="w-[10%]" mode="side" opened>
+        <ul>
+            <li [routerLink]="['']" class="flex items-center hover:cursor-pointer">
+                <mat-icon>home</mat-icon>
+                <span class="text-lg">Home</span>
+            </li>
+            <li [routerLink]="['RandomNumber']" class="flex items-center hover:cursor-pointer">
+                <mat-icon>error</mat-icon>
+                <span class="text-lg">Random Number</span>
+            </li>
+        </ul>
+    </mat-drawer>
+    <mat-drawer-content>
+        <router-outlet></router-outlet>
+    </mat-drawer-content>
+</mat-drawer-container>
