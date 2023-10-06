@@ -6,5 +6,11 @@ import { Component } from '@angular/core';
   styleUrls: ['./random-number.component.css']
 })
 export class RandomNumberComponent {
+  public array: number[] = [];
 
+  private readonly _randomNumber: IRandomNumber;
+
+  constructor(randomNumber: RandomNumberService) {
+    this._randomNumber = randomNumber;
+  }
 }
