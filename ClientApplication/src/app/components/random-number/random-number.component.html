@@ -1,1 +1,14 @@
-<p>random-number works!</p>
+<button (click)="getRandomNumbers()" class="m-1.5" mat-raised-button color="primary">Get Random Numbers</button>
+
+<div *ngIf="this.array.length !== 0" class="flex">
+    <div class="w-1/2">
+        <ng-container *ngFor="let item of countNumbers(this.array) | keyvalue">
+            <p class="text-lg text-center font-medium"><span class="italic">{{item.key}}</span>: {{item.value}}</p>
+        </ng-container>
+        <h3 class="text-center">Variance: {{calculateVariance(this.array)}}</h3>
+        <h3 class="text-center">Average: {{calculateAverage(this.array)}}</h3>
+    </div>
+    <div class="w-1/2">
+        <canvas class="w-full" baseChart [data]="barChartData" [type]="'bar'"></canvas>
+    </div>
+</div>
