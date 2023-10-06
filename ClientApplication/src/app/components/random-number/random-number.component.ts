@@ -19,4 +19,18 @@ export class RandomNumberComponent {
       this.array = response.sort((a, b) => a - b);
     })
   }
+
+  public countNumbers(numbers: number[]): { [key: number]: number } {
+    const numberCount: { [key: number]: number } = {};
+
+    for (const number of numbers) {
+      if (numberCount[number]) {
+        numberCount[number]++;
+      } else {
+        numberCount[number] = 1;
+      }
+    }
+
+    return numberCount;
+  }
 }
