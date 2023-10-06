@@ -13,4 +13,10 @@ export class RandomNumberComponent {
   constructor(randomNumber: RandomNumberService) {
     this._randomNumber = randomNumber;
   }
+
+  public getRandomNumbers() {
+    this._randomNumber.getRandomNumbers().subscribe(response => {
+      this.array = response.sort((a, b) => a - b);
+    })
+  }
 }
