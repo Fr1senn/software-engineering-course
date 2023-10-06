@@ -1,4 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
+import { ChartConfiguration } from 'chart.js';
+import { BaseChartDirective } from 'ng2-charts';
+import { IRandomNumber } from 'src/app/interfaces/IRandomNumber';
+import { RandomNumberService } from 'src/app/services/random-number.service';
 
 @Component({
   selector: 'app-random-number',
@@ -8,7 +12,15 @@ import { Component } from '@angular/core';
 export class RandomNumberComponent {
   public array: number[] = [];
 
+  public barChartData: ChartConfiguration<'bar'>['data'] = {
+    labels: [],
+    datasets: [
+      {data: []}
+    ]
+  };
+
   private readonly _randomNumber: IRandomNumber;
+  @ViewChild(BaseChartDirective) chart: BaseChartDirective | undefined;
 
   constructor(randomNumber: RandomNumberService) {
     this._randomNumber = randomNumber;
@@ -17,6 +29,9 @@ export class RandomNumberComponent {
   public getRandomNumbers() {
     this._randomNumber.getRandomNumbers().subscribe(response => {
       this.array = response.sort((a, b) => a - b);
+      this.barChartData.labels = this.countIntervals(this.array);
+      this.barChartData.datasets[0].data = this.countNumbersInIntervals(this.array);
+      this.chart?.update();
     })
   }
 
