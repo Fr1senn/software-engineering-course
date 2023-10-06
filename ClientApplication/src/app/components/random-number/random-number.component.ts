@@ -42,4 +42,8 @@ export class RandomNumberComponent {
 
     return +(sumOfSquares / numbers.length).toFixed(3);
   }
+
+  public calculateAverage(numbers: number[]): number {
+    return +(numbers.reduce((sum, num) => sum + num, 0) / numbers.length).toFixed(3);
+  }
 }
