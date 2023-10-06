@@ -33,4 +33,13 @@ export class RandomNumberComponent {
 
     return numberCount;
   }
+
+  public calculateVariance(numbers: number[]): number {
+
+    const mean = numbers.reduce((sum, num) => sum + num, 0) / numbers.length;
+
+    const sumOfSquares = numbers.reduce((sum, num) => sum + Math.pow(num - mean, 2), 0);
+
+    return +(sumOfSquares / numbers.length).toFixed(3);
+  }
 }
