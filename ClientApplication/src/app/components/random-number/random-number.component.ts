@@ -46,4 +46,17 @@ export class RandomNumberComponent {
   public calculateAverage(numbers: number[]): number {
     return +(numbers.reduce((sum, num) => sum + num, 0) / numbers.length).toFixed(3);
   }
+
+  private countIntervals(numbers: number[]): number[] {
+    let min: number = Math.min(...numbers);
+    let intervalGap: number = (Math.max(...numbers) - min) / 10;
+    let intervals: number[] = [];
+    for (let i: number = 0; i < 10; i++) {
+      let intervalStart: number = min + (i * intervalGap);
+      let intervalEnd: number = intervalStart + intervalGap;
+      intervals.push(intervalEnd);
+    }
+
+    return intervals;
+  }
 }
