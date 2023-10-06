@@ -59,4 +59,20 @@ export class RandomNumberComponent {
 
     return intervals;
   }
+
+  private countNumbersInIntervals(numbers: number[]): number[] {
+    const intervals: number[] = Array.from({ length: 10 }, () => 0);
+
+    const min = Math.min(...numbers);
+    const max = Math.max(...numbers);
+    const intervalWidth = (max - min) / 10;
+
+    numbers.forEach(num => {
+        const intervalIndex = Math.floor((num - min) / intervalWidth);
+        intervals[intervalIndex]++;
+    });
+
+    return intervals;
+}
+
 }
