@@ -16,6 +16,6 @@ export class RandomNumberService implements IRandomNumber {
   }
 
   public getRandomNumbers(): Observable<number[]> {
-    return this._http.get<number[]>(this._apiURL + 'RandomNumber');
+    return this._http.get<number[]>(this._apiURL + '/RandomNumber');
   }
 }
