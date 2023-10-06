@@ -2,11 +2,12 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment } from 'src/envs/env';
+import { IRandomNumber } from '../interfaces/IRandomNumber';
 
 @Injectable({
   providedIn: 'root'
 })
-export class RandomNumberService {
+export class RandomNumberService implements IRandomNumber {
   private readonly _http: HttpClient;
   private readonly _apiURL: string = environment.baseApiUrl;
 
