@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using SoftwareEngineering.Interfaces;
+using SoftwareEngineering.Interfaces.Services;
 
 namespace SoftwareEngineering.Controllers
 {
