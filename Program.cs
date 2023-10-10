@@ -1,5 +1,6 @@
 using SoftwareEngineering.Interfaces;
 using SoftwareEngineering.Interfaces.Services;
+using SoftwareEngineering.Repositories;
 using SoftwareEngineering.Services;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -20,6 +21,7 @@ builder.Services.AddCors(options =>
 });
 
 builder.Services.AddTransient<IRandomNumberGenerator, RandomNumberGenerator>();
+builder.Services.AddTransient<IBookRepository, BookRepository>();
 
 var app = builder.Build();
 
