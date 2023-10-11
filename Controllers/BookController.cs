@@ -1,6 +1,6 @@
-﻿using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using SoftwareEngineering.Interfaces;
+using SoftwareEngineering.Models.DTOs;
 
 namespace SoftwareEngineering.Controllers
 {
@@ -19,6 +19,34 @@ namespace SoftwareEngineering.Controllers
         public async Task<IActionResult> GetBooksAsync()
         {
             return Ok(await _bookRepository.GetBooksAsync());
+        }
+
+        [HttpDelete]
+        public async Task<IActionResult> DeleteBookAsync([FromBody] int bookId)
+        {
+            try
+            {
+                await _bookRepository.DeleteBookAsync(bookId);
+                return Ok();
+            }
+            catch (NullReferenceException ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> CreateBookAsync([FromBody] BookDTO book)
+        {
+            try
+            {
+                await _bookRepository.CreateBookAsync(book);
+                return Ok();
+            }
+            catch (NullReferenceException ex)
+            {
+                return BadRequest(ex.Message);
+            }
         }
     }
 }
