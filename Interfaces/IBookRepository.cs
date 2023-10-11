@@ -1,4 +1,5 @@
 ﻿using SoftwareEngineering.Models;
+using SoftwareEngineering.Models.DTOs;
 
 namespace SoftwareEngineering.Interfaces
 {
@@ -7,5 +8,7 @@ namespace SoftwareEngineering.Interfaces
         public Task<IEnumerable<BookDTO>> GetBooksAsync();
 
         public Task DeleteBookAsync(int id);
+
+        public Task CreateBookAsync(BookDTO book);
     }
 }
