@@ -62,10 +62,21 @@ namespace SoftwareEngineering.Repositories
             _libraryContext.Books.Remove(book);
             await _libraryContext.SaveChangesAsync();
         }
+
+        public async Task<IEnumerable<BookDTO>> GetBooksAsync()
         {
-            List<BooksAuthor> books = await _libraryContext.BooksAuthors
-                .Include(bA => bA.Book)
-                .Include(bA => bA.Author)
+            List<BookDTO> books = await _libraryContext.Books
+                .Include(b => b.BooksAuthors)
+                .ThenInclude(ba => ba.Author)
+                .Include(b => b.Orders)
+                .Select(b => new BookDTO
+                {
+                    Id = b.Id,
+                    Title = b.Title,
+                    PublicationDate = b.PublicationDate,
+                    Authors = b.BooksAuthors.Select(ba => ba.Author).ToList(),
+                    Orders = b.Orders.ToList()
+                })
                 .AsNoTracking()
                 .ToListAsync();
             return books;
