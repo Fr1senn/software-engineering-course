@@ -82,6 +82,7 @@ public partial class LibraryContext : DbContext
 
             entity.HasOne(d => d.Book).WithMany(p => p.BooksAuthors)
                 .HasForeignKey(d => d.BookId)
+                .OnDelete(DeleteBehavior.Cascade)
                 .HasConstraintName("books_authors_book_id_fkey");
         });
 
