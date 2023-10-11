@@ -1,11 +1,11 @@
-import { BooksAuthor } from "./booksAuthor";
+import { Author } from "./author";
 import { Order } from "./order";
 
 export type Book = {
-    id: number,
+    id?: number,
     title: string,
     publicationDate: Date,
 
-    booksAuthor?: BooksAuthor[],
+    authors?: Author[],
     orders?: Order[]
 };
