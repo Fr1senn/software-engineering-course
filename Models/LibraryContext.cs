@@ -102,6 +102,7 @@ public partial class LibraryContext : DbContext
 
             entity.HasOne(d => d.Book).WithMany(p => p.Orders)
                 .HasForeignKey(d => d.BookId)
+                .OnDelete(DeleteBehavior.SetNull)
                 .HasConstraintName("order_book_id_fkey");
 
             entity.HasOne(d => d.Reader).WithMany(p => p.Orders)
