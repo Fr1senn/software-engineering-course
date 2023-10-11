@@ -1,0 +1,23 @@
+<div mat-dialog-content>
+    <p class="text-center" mat-dialog-title>Create a Book</p>
+    <div class="flex flex-col">
+        <mat-form-field>
+            <mat-label>Book Title</mat-label>
+            <input [(ngModel)]="book.title" matInput placeholder="Enter a book title">
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>Publication Date</mat-label>
+            <input [(ngModel)]="book.publicationDate" type="date" matInput placeholder="Enter a book title">
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>Authors</mat-label>
+            <mat-select [(ngModel)]="book.authors" multiple>
+                <mat-option *ngFor="let author of authorsFullName" [value]="author">{{author}}</mat-option>
+            </mat-select>
+        </mat-form-field>
+    </div>
+    <div class="flex justify-evenly mx-auto space-x-4">
+        <button (click)="closeDialog()" mat-raised-button color="warn">Cancel</button>
+        <button (click)="createBook()" mat-raised-button color="primary">Create</button>
+    </div>
+</div>
