@@ -14,6 +14,15 @@ namespace SoftwareEngineering.Repositories
         }
 
         public async Task<IEnumerable<BooksAuthor>> GetBooksAsync()
+
+        public async Task DeleteBookAsync(int id)
+        {
+            Book? book = await _libraryContext.Books.FindAsync(id);
+            if (book is null)
+                throw new NullReferenceException("Book not found");
+            _libraryContext.Books.Remove(book);
+            await _libraryContext.SaveChangesAsync();
+        }
         {
             List<BooksAuthor> books = await _libraryContext.BooksAuthors
                 .Include(bA => bA.Book)
