@@ -22,14 +22,7 @@ import { FormsModule } from '@angular/forms';
     AddBookDialogComponent
   ],
   imports: [
-    RouterModule.forRoot([
-      {
-        path: 'Library', component: LibraryComponent, children: [
-          { path: '', redirectTo: 'Books', pathMatch: 'full' },
-          { path: 'Books', component: BooksComponent }
-        ]
-      }
-    ]),
+    RouterModule.forRoot(routes),
     CommonModule,
     FormsModule,
     MatTableModule,
