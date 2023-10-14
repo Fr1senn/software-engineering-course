@@ -12,6 +12,9 @@ import { MatSelectModule } from '@angular/material/select';
 import { BooksComponent } from './components/books/books.component';
 import { AddBookDialogComponent } from './components/books/add-book-dialog/add-book-dialog.component';
 import { FormsModule } from '@angular/forms';
+import { OrdersComponent } from './components/orders/orders.component';
+import { routes } from './routes';
+import { AddOrderDialogComponent } from './components/orders/add-order-dialog/add-order-dialog.component';
 
 
 
@@ -19,7 +22,9 @@ import { FormsModule } from '@angular/forms';
   declarations: [
     LibraryComponent,
     BooksComponent,
-    AddBookDialogComponent
+    AddBookDialogComponent,
+    OrdersComponent,
+    AddOrderDialogComponent
   ],
   imports: [
     RouterModule.forRoot(routes),
