@@ -24,7 +24,9 @@ builder.Services.AddCors(options =>
 });
 
 builder.Services.AddTransient<IRandomNumberGenerator, RandomNumberGenerator>();
+
 builder.Services.AddTransient<IBookRepository, BookRepository>();
+builder.Services.AddTransient<IOrderRepository, OrderRepository>();
 
 var app = builder.Build();
 
