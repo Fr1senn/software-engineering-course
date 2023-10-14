@@ -34,8 +34,6 @@ export class AddBookDialogComponent {
         fullName: fullName
       };
     });
-
-    console.log(authors);
     
     this.book.authors = authors;
 

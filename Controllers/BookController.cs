@@ -22,7 +22,7 @@ namespace SoftwareEngineering.Controllers
         }
 
         [HttpDelete]
-        public async Task<IActionResult> DeleteBookAsync([FromBody] int bookId)
+        public async Task<IActionResult> DeleteBookAsync([FromQuery] int bookId)
         {
             try
             {

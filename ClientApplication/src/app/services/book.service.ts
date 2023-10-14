@@ -22,8 +22,7 @@ export class BookService implements IBookService {
 
   deleteBook(bookId: number): any {
     return this._http.delete(this._apiURL + '/Book', {
-      body: bookId,
-      responseType: "text" as "json"
+      params: { 'bookId': bookId }
     });
   }
 

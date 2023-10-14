@@ -27,7 +27,7 @@
           <button mat-mini-fab color="basic" aria-label="Example icon button with a delete icon">
             <mat-icon>edit</mat-icon>
           </button>
-          <button (click)="delete(book)" mat-mini-fab color="warn" aria-label="Example icon button with a delete icon">
+          <button (click)="deleteBook(book)" mat-mini-fab color="warn" aria-label="Example icon button with a delete icon">
             <mat-icon>delete</mat-icon>
           </button>
         </div>
@@ -39,6 +39,6 @@
   </table>
 </div>
 
-<button (click)="openDialog()" class="absolute left-[95%] my-2" mat-fab color="accent" aria-label="Example icon button with a delete icon">
+<button (click)="openDialog()" class="!fixed bottom-0 right-0 m-5" mat-fab color="accent">
   <mat-icon>add</mat-icon>
 </button>

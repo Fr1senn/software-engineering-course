@@ -29,9 +29,9 @@ namespace SoftwareEngineering.Repositories
 
             if (bookDTO.Authors != null)
             {
-                foreach (var authorDTO in bookDTO.Authors)
+                foreach (var author in bookDTO.Authors)
                 {
-                    var existingAuthor = await _libraryContext.Authors.SingleOrDefaultAsync(a => a.FullName == authorDTO.FullName);
+                    var existingAuthor = await _libraryContext.Authors.SingleOrDefaultAsync(a => a.FullName == author.FullName);
 
                     if (existingAuthor != null)
                     {
@@ -54,9 +54,9 @@ namespace SoftwareEngineering.Repositories
             await _libraryContext.SaveChangesAsync();
         }
 
-        public async Task DeleteBookAsync(int id)
+        public async Task DeleteBookAsync(int bookId)
         {
-            Book? book = await _libraryContext.Books.FindAsync(id);
+            Book? book = await _libraryContext.Books.FindAsync(bookId);
             if (book is null)
                 throw new NullReferenceException("Book not found");
             _libraryContext.Books.Remove(book);

@@ -24,12 +24,12 @@ export class BooksComponent implements OnInit {
     this.getBooks();
   }
 
-  public delete(book: Book) {
+  public deleteBook(book: Book) {
     this._bookService.deleteBook(book.id!).subscribe((data: any) => {
       this.books = this.books.filter((b: Book) => {
         return b.id !== book.id
       });
-    })
+    });
   }
 
   public openDialog(): void {

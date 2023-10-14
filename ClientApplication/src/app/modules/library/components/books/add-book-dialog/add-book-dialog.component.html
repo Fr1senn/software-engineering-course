@@ -18,6 +18,6 @@
     </div>
     <div class="flex justify-evenly mx-auto space-x-4">
         <button (click)="closeDialog()" mat-raised-button color="warn">Cancel</button>
-        <button (click)="createBook()" mat-raised-button color="primary">Create</button>
+        <button [disabled]="!book.title" (click)="createBook()" mat-raised-button color="primary">Create</button>
     </div>
 </div>

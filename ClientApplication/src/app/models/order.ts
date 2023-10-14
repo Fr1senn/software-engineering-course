@@ -5,9 +5,7 @@ export type Order = {
     id: number,
     orderDate: Date,
     refundDate?: Date,
-    readerId: number,
-    bookId: number,
 
-    books?: Book[],
-    readers?: Reader[]
+    book?: Book,
+    reader?: Reader
 };
