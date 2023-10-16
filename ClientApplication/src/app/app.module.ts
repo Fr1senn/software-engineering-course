@@ -7,9 +7,10 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatIconModule } from '@angular/material/icon';
-import {MatButtonModule} from '@angular/material/button';
+import { MatButtonModule } from '@angular/material/button';
 import { RandomNumberComponent } from './components/random-number/random-number.component';
 import { NgChartsModule } from 'ng2-charts';
+import { LibraryModule } from './modules/library/library.module';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { NgChartsModule } from 'ng2-charts';
     MatSidenavModule,
     MatIconModule,
     MatButtonModule,
-    NgChartsModule
+    NgChartsModule,
+    LibraryModule
   ],
   providers: [],
   bootstrap: [AppComponent]

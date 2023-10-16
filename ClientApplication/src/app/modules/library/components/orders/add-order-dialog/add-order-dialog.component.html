@@ -1,0 +1,21 @@
+<div mat-dialog-content>
+    <p class="text-center" mat-dialog-title>Create an Order</p>
+    <div class="flex flex-col">
+        <mat-form-field>
+            <mat-label>Book</mat-label>
+            <mat-select [(ngModel)]="order.book.title">
+                <mat-option *ngFor="let book of data['books']" [value]="book">{{book}}</mat-option>
+            </mat-select>
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>Reader</mat-label>
+            <mat-select [(ngModel)]="order.reader.fullName">
+                <mat-option *ngFor="let reader of data['readers']" [value]="reader">{{reader}}</mat-option>
+            </mat-select>
+        </mat-form-field>
+    </div>
+    <div class="flex justify-evenly mx-auto space-x-4">
+        <button (click)="closeDialog()" mat-raised-button color="warn">Cancel</button>
+        <button [disabled]="!order.book.title || !order.reader.fullName" (click)="createOrder()" mat-raised-button color="primary">Create</button>
+    </div>
+</div>

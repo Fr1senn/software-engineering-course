@@ -1,4 +1,4 @@
-﻿using SoftwareEngineering.Interfaces;
+﻿using SoftwareEngineering.Interfaces.Services;
 
 namespace SoftwareEngineering.Services
 {

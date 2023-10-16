@@ -1,0 +1,6 @@
+<nav mat-tab-nav-bar [tabPanel]="tabPanel">
+    <a mat-tab-link [routerLink]="['Books']" [routerLinkActive]="['bg-slate-200']">Books</a>
+    <a mat-tab-link [routerLink]="['Orders']" [routerLinkActive]="['bg-slate-200']">Orders</a>
+</nav>
+<mat-tab-nav-panel #tabPanel></mat-tab-nav-panel>
+<router-outlet></router-outlet>

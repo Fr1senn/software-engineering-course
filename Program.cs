@@ -1,4 +1,7 @@
 using SoftwareEngineering.Interfaces;
+using SoftwareEngineering.Interfaces.Services;
+using SoftwareEngineering.Models;
+using SoftwareEngineering.Repositories;
 using SoftwareEngineering.Services;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -10,6 +13,8 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
+builder.Services.AddDbContext<LibraryContext>();
+
 builder.Services.AddCors(options =>
 {
     options.AddPolicy("CORS", builder =>
@@ -19,6 +24,9 @@ builder.Services.AddCors(options =>
 });
 
 builder.Services.AddTransient<IRandomNumberGenerator, RandomNumberGenerator>();
+
+builder.Services.AddTransient<IBookRepository, BookRepository>();
+builder.Services.AddTransient<IOrderRepository, OrderRepository>();
 
 var app = builder.Build();
 

@@ -1,4 +1,4 @@
-﻿namespace SoftwareEngineering.Interfaces
+﻿namespace SoftwareEngineering.Interfaces.Services
 {
     public interface IRandomNumberGenerator
     {
