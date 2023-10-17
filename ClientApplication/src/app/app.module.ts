@@ -11,11 +11,13 @@ import { MatButtonModule } from '@angular/material/button';
 import { RandomNumberComponent } from './components/random-number/random-number.component';
 import { NgChartsModule } from 'ng2-charts';
 import { LibraryModule } from './modules/library/library.module';
+import { IntegralGraphComponent } from './components/integral-graph/integral-graph.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    RandomNumberComponent
+    RandomNumberComponent,
+    IntegralGraphComponent
   ],
   imports: [
     BrowserModule,
