@@ -1,11 +1,9 @@
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
-import { RandomNumberComponent } from './components/random-number/random-number.component';
+import { routes } from './routes';
 
 @NgModule({
-  imports: [RouterModule.forRoot([
-    { path: 'RandomNumber', component: RandomNumberComponent }
-  ])],
+  imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
